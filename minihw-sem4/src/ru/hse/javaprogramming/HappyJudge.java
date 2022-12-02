@@ -1,9 +1,9 @@
 package ru.hse.javaprogramming;
 
-public class JudgeB extends Judge {
+public class HappyJudge extends Judge {
     @Override
-    public double judge(Performance performance) {
-        return 5;
+    public Judgement judge(Performance performance) {
+        return new Judgement(5, "Nice!");
     }
 
     @Override
