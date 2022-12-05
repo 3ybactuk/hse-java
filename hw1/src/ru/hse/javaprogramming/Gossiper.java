@@ -3,13 +3,15 @@ package ru.hse.javaprogramming;
 
 import java.util.ArrayList;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 public abstract class Gossiper {
     public final String name;
-    public SortedSet<Gossiper> listeners;
+    public SortedSet<Gossiper> listeners = new TreeSet<Gossiper>(
+            (Gossiper g1, Gossiper g2) -> -(g1.name).compareTo(g2.name));
     protected int maxMessagesN;
     protected int currentMessageN = 0;
-    protected ArrayList<String> gossipMessages;
+    protected ArrayList<String> gossipMessages = new ArrayList<String>();
 
     public Gossiper(String name) {
         this.name = name;

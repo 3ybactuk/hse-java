@@ -2,11 +2,13 @@ package ru.hse.javaprogramming;
 
 import java.util.Scanner;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Gossips {
     public static int MAX_MOVES;
     public static final int MAX_GOSSIPERS = 100;
-    public static SortedSet<Gossiper> gossipers;
+    public static SortedSet<Gossiper> gossipers = new TreeSet<Gossiper>(
+            (Gossiper g1, Gossiper g2) -> -(g1.name).compareTo(g2.name));
 
     public static void main(String[] args) {
         try {
@@ -105,8 +107,13 @@ public class Gossips {
             case "spammer" -> gossipers.add(new SpammerGossiper(name));
             case "simple" -> gossipers.add(new SimpleGossiper(name));
             case "deduplicator" -> gossipers.add(new DeduplicatorGossiper(name));
-            default -> System.out.println("Error: unknown type.");
+            default -> {
+                System.out.println("Error: unknown type.");
+                return;
+            }
         }
+
+        System.out.println(name + " successfully created.");
     }
 
     /**
