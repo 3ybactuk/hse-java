@@ -2,27 +2,43 @@ package ru.hse.javaprogramming;
 
 
 import java.util.ArrayList;
+import java.util.SortedSet;
 
 public abstract class Gossiper {
-    private String name;
-    private ArrayList<Gossiper> listeners;
+    public final String name;
+    public SortedSet<Gossiper> listeners;
     protected int maxMessagesN;
     protected int currentMessageN = 0;
     protected ArrayList<String> gossipMessages;
 
-    /**
-     * @return string containing the name of a gossiper
-     */
-    public String getName() {
-        return name;
+    public Gossiper(String name) {
+        this.name = name;
     }
+
 
     /**
      * Adds a gossiper to listeners
      * @param gossiper the Gossiper object
      */
     public void addListener(Gossiper gossiper) {
+        if (listeners.contains(gossiper)) {
+            System.out.println("Error: \"" + gossiper.name + "\" is already a listener of \"" + this.name + "\".");
+            return;
+        }
         listeners.add(gossiper);
+    }
+
+    /**
+     * Removes a gossiper from listeners
+     * @param gossiper the Gossiper object
+     */
+    public void removeListener(Gossiper gossiper) {
+        if (!listeners.contains(gossiper)) {
+            System.out.println("Error: \"" + gossiper.name + "\" isn't a listener of \"" + this.name + "\".");
+            return;
+        }
+
+        listeners.remove(gossiper);
     }
 
     /**

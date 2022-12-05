@@ -2,6 +2,9 @@ package ru.hse.javaprogramming;
 
 public class CensorGossiper extends Gossiper {
 
+    public CensorGossiper(String name) {
+        super(name);
+    }
 
     /**
      * Prints name, number of a gossip, gossip message.
@@ -10,7 +13,7 @@ public class CensorGossiper extends Gossiper {
     @Override
     public void doGossipAction() {
         for (String gossipMessage : gossipMessages) {
-            System.out.println(getName() + ", message number = " + currentMessageN + ", message: \"" + gossipMessage + "\"");
+            System.out.println(this.name + ", message number = " + currentMessageN + ", message: \"" + gossipMessage + "\"");
 
             if (gossipMessage.toLowerCase().contains("java")) {
                 sendMessage(gossipMessage);
