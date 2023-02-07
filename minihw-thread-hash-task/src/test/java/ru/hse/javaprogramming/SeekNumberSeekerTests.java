@@ -9,99 +9,99 @@ import static org.junit.jupiter.api.Assertions.*;
 public class SeekNumberSeekerTests {
     @Test
     void zeroZeroes() {
-        SeekNumberMain.setZeroes(0);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 0;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 != 0);
     }
 
     @Test
     void oneZero() {
-        SeekNumberMain.setZeroes(1);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 1;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100 != 0);
     }
 
     @Test
     void twoZeroes() {
-        SeekNumberMain.setZeroes(2);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 2;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000 != 0);
     }
 
     @Test
     void threeZeroes() {
-        SeekNumberMain.setZeroes(3);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 3;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 10000 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10000 != 0);
     }
 
     @Test
     void fourZeroes() {
-        SeekNumberMain.setZeroes(4);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 4;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 10000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100000 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100000 != 0);
     }
 
     @Test
     void fiveZeroes() {
-        SeekNumberMain.setZeroes(5);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 5;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 10000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000000 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000000 != 0);
     }
 
     @Test
     void sixZeroes() {
-        SeekNumberMain.setZeroes(6);
-        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker();
+        int zeroes = 6;
+        SeekNumberSeeker seekNumberSeeker = new SeekNumberSeeker(zeroes);
 
-        System.out.println(SeekNumberMain.getZeroes());
+        System.out.println(zeroes);
         seekNumberSeeker.run();
 
-        assertTrue(seekNumberSeeker.foundNumber % 10 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 10000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 100000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 1000000 == 0);
-        assertTrue(seekNumberSeeker.foundNumber % 10000000 != 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 100000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 1000000 == 0);
+        assertTrue(seekNumberSeeker.getFoundNumber() % 10000000 != 0);
     }
 }
