@@ -1,17 +1,21 @@
 package ru.hse.javaprogramming;
 
+/**
+ * SimpleGossiper writes received messages and passes them without any changes.
+ */
 public class SimpleGossiper extends Gossiper {
 
-    public SimpleGossiper(String name) {
-        super(name);
+    public SimpleGossiper(String name, int maxMoves) {
+        super(name, maxMoves);
     }
 
+    /**
+     * Writes received messages and passes them without any changes.
+     * @param gossipMessage received message.
+     */
     @Override
-    public void doGossipAction() {
-        for (String gossipMessage : gossipMessages) {
-            System.out.println(this.name + ", message number = " + currentMessageN + ", message: \"" + gossipMessage + "\"");
-
-            sendMessage(gossipMessage);
-        }
+    public void doGossipAction(String gossipMessage) {
+        printMessage(gossipMessage);
+        sendMessage(gossipMessage);
     }
 }

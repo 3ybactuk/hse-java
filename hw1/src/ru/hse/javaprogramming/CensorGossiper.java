@@ -1,9 +1,12 @@
 package ru.hse.javaprogramming;
 
+/**
+ * CensorGossiper writes all the received messages, but passes only messages containing word "java".
+ */
 public class CensorGossiper extends Gossiper {
 
-    public CensorGossiper(String name) {
-        super(name);
+    public CensorGossiper(String name, int maxMoves) {
+        super(name, maxMoves);
     }
 
     /**
@@ -11,13 +14,10 @@ public class CensorGossiper extends Gossiper {
      * Only spreads gossips that contain "Java" in any case
      */
     @Override
-    public void doGossipAction() {
-        for (String gossipMessage : gossipMessages) {
-            System.out.println(this.name + ", message number = " + currentMessageN + ", message: \"" + gossipMessage + "\"");
-
-            if (gossipMessage.toLowerCase().contains("java")) {
-                sendMessage(gossipMessage);
-            }
+    public void doGossipAction(String gossipMessage) {
+        printMessage(gossipMessage);
+        if (gossipMessage.toLowerCase().contains("java")) {
+            sendMessage(gossipMessage);
         }
     }
 
