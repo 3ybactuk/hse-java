@@ -39,29 +39,29 @@ public class TempDirSampleTest {
 	}
 
 	@Test
-	public void testCensorFile(@TempDir Path path) throws IOException {
-		List<String> expletives = Arrays.asList("C#", "Mircosoft");
+	public void testCensorFile() throws IOException {
+		List<String> expletives = Arrays.asList("C#", "Microsoft");
 
-		String filename = "test.txt";
-		Path target = path.resolve(filename);
+		String filename = "tmp/test.txt";
+		File file = new File(filename);
 
 		String expectedFilename = "tmp/test.txt.clean";
 
-		Files.writeString(target, "C# - это мощный и гибкий язык программирования, разработанный компанией Microsoft.\n");
-		Files.writeString(target, "C#.\n");
+		Files.writeString(file.toPath(), "C# - это мощный и гибкий язык программирования, разработанный компанией Microsoft.\n");
+		Files.writeString(file.toPath(), "C#.\n");
 
 		censorFile(filename);
 
-		Path cleanFile = path.resolve(expectedFilename);
+		File cleanFile = new File(expectedFilename);
 
-		List<String> cleanLines = Files.readAllLines(Paths.get(expectedFilename));
+		List<String> cleanLines = Files.readAllLines(Paths.get(cleanFile.toURI()));
 		assertEquals("*** - это мощный и гибкий язык программирования, разработанный компанией ***.", cleanLines.get(0));
 		assertEquals("***.", cleanLines.get(1));
 	}
 
 	@Test
 	public void testCensorIO() {
-		List<String> expletives = Arrays.asList("bad", "ugly");
+		List<String> expletives = Arrays.asList("C#", "Microsoft");
 		String input = "C# был явным результатом компании Microsoft, которая решила позаимствовать идеи Java.\n";
 		String expectedOutput = "*** был явным результатом компании ***, которая решила позаимствовать идеи Java.\n";
 
